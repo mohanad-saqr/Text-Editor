@@ -12,15 +12,15 @@ module.exports = () => {
     },
     output: {
       filename: '[name].bundle.js',
-      path: path.resolve(__dirname, 'client', 'dist'), // Updated output path
+      path: path.resolve(__dirname, 'client', 'dist'),
     },
     plugins: [
       new HtmlWebpackPlugin({
-        template: './index.html', // Corrected path to index.html
+        template: './index.html',
         filename: 'index.html'
       }),
       new InjectManifest({
-        swSrc: './src-sw.js',
+        swSrc: path.resolve(__dirname,'./src-sw.js'),
         swDest: 'service-worker.js',
       }),
       new WebpackPwaManifest({
